@@ -13,6 +13,7 @@
 		E31C31B01EEFDD6A00218505 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E31C31AE1EEFDD6A00218505 /* ToDoList.xcdatamodeld */; };
 		E31C31B21EEFDD6A00218505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31C31B11EEFDD6A00218505 /* Assets.xcassets */; };
 		E31C31B51EEFDD6A00218505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31C31B31EEFDD6A00218505 /* LaunchScreen.storyboard */; };
+		E31C31BD1EEFE95B00218505 /* VCitems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C31BC1EEFE95B00218505 /* VCitems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E31C31B11EEFDD6A00218505 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E31C31B41EEFDD6A00218505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E31C31B61EEFDD6A00218505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E31C31BC1EEFE95B00218505 /* VCitems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCitems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				E31C31A71EEFDD6A00218505 /* AppDelegate.swift */,
 				E31C31A91EEFDD6A00218505 /* ViewController.swift */,
+				E31C31BC1EEFE95B00218505 /* VCitems.swift */,
 				E31C31AB1EEFDD6A00218505 /* Main.storyboard */,
 				E31C31B11EEFDD6A00218505 /* Assets.xcassets */,
 				E31C31B31EEFDD6A00218505 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 				E31C31AA1EEFDD6A00218505 /* ViewController.swift in Sources */,
 				E31C31B01EEFDD6A00218505 /* ToDoList.xcdatamodeld in Sources */,
 				E31C31A81EEFDD6A00218505 /* AppDelegate.swift in Sources */,
+				E31C31BD1EEFE95B00218505 /* VCitems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +312,7 @@
 				E31C31BB1EEFDD6A00218505 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
