@@ -13,7 +13,7 @@
         <!--To Do List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="TasksViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,6 +36,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List" id="OFJ-Jg-vT2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="N9F-31-VSb"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nhu-YE-sQG">
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="CG6-3j-F07"/>
@@ -44,12 +45,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="todoTableView" destination="iIE-y6-VSZ" id="atQ-P9-7tg"/>
-                        <segue destination="fbH-oN-fJV" kind="show" id="ZwW-q7-rkg"/>
+                        <segue destination="fbH-oN-fJV" kind="show" identifier="addSegue" id="ZwW-q7-rkg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3766" y="514"/>
+            <point key="canvasLocation" x="-3842" y="512"/>
         </scene>
         <!--Citems-->
         <scene sceneID="Avn-cm-JSd">
@@ -63,28 +64,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUB-Zz-kWM">
-                                <rect key="frame" x="36" y="104" width="303" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUB-Zz-kWM">
+                                <rect key="frame" x="143" y="104" width="90" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAP-mM-D67">
-                                <rect key="frame" x="163" y="181" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAP-mM-D67">
+                                <rect key="frame" x="163" y="275" width="51" height="31"/>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-cj-wgW">
+                                <rect key="frame" x="136" y="231" width="123" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="m84-eT-p8B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ei-jr-CfA">
+                                <rect key="frame" x="165" y="336" width="46" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="fbH-oN-fJV" eventType="touchUpInside" id="mpE-Cy-4zM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="roe-yD-vXg">
+                                <rect key="frame" x="46" y="161" width="283" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PUB-Zz-kWM" firstAttribute="top" secondItem="oda-9V-ShF" secondAttribute="bottom" constant="40" id="1Uh-YI-H4O"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PUB-Zz-kWM" secondAttribute="trailing" constant="20" id="TC7-8W-yNL"/>
-                            <constraint firstItem="PUB-Zz-kWM" firstAttribute="leading" secondItem="cBd-pD-p7u" secondAttribute="leadingMargin" constant="20" id="Z40-eV-tw7"/>
+                            <constraint firstItem="roe-yD-vXg" firstAttribute="centerX" secondItem="cBd-pD-p7u" secondAttribute="centerX" id="1eH-lB-O3L"/>
+                            <constraint firstItem="2CS-cj-wgW" firstAttribute="top" secondItem="roe-yD-vXg" secondAttribute="bottom" constant="40" id="5nN-Lp-Mqo"/>
+                            <constraint firstItem="RAP-mM-D67" firstAttribute="top" secondItem="2CS-cj-wgW" secondAttribute="bottom" constant="15" id="AxS-7x-Tiu"/>
+                            <constraint firstItem="PUB-Zz-kWM" firstAttribute="top" secondItem="oda-9V-ShF" secondAttribute="bottom" constant="40" id="DlD-KM-BDt"/>
+                            <constraint firstItem="roe-yD-vXg" firstAttribute="leading" secondItem="cBd-pD-p7u" secondAttribute="leadingMargin" constant="30" id="FlM-by-H4P"/>
+                            <constraint firstItem="2CS-cj-wgW" firstAttribute="leading" secondItem="cBd-pD-p7u" secondAttribute="leading" constant="136" id="XVk-GR-gSw"/>
+                            <constraint firstItem="4ei-jr-CfA" firstAttribute="top" secondItem="RAP-mM-D67" secondAttribute="bottom" constant="30" id="eYg-3G-wWd"/>
+                            <constraint firstItem="PUB-Zz-kWM" firstAttribute="centerX" secondItem="cBd-pD-p7u" secondAttribute="centerX" id="koO-Va-dq8"/>
+                            <constraint firstItem="roe-yD-vXg" firstAttribute="top" secondItem="PUB-Zz-kWM" secondAttribute="bottom" constant="20" id="tPq-dB-X2M"/>
+                            <constraint firstItem="RAP-mM-D67" firstAttribute="centerX" secondItem="4ei-jr-CfA" secondAttribute="centerX" id="uAV-Fu-4fd"/>
+                            <constraint firstItem="roe-yD-vXg" firstAttribute="centerX" secondItem="RAP-mM-D67" secondAttribute="centerX" id="xYO-7X-w76"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="impSwitch" destination="RAP-mM-D67" id="EGK-JV-Ak6"/>
+                        <outlet property="itemNameLable" destination="PUB-Zz-kWM" id="qyr-py-rCh"/>
+                        <outlet property="itemTextyField" destination="roe-yD-vXg" id="TPk-l0-TYS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y2-wg-f85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2991" y="513"/>
+            <point key="canvasLocation" x="-3124" y="512.29385307346331"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dEg-rg-RUx">
@@ -102,7 +138,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sR2-8S-AFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4564" y="531"/>
+            <point key="canvasLocation" x="-4562" y="512"/>
         </scene>
     </scenes>
 </document>
