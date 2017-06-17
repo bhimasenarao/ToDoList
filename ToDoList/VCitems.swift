@@ -15,7 +15,7 @@ class VCitems: UIViewController {
     @IBOutlet var itemTextyField: UITextField!
     
     @IBOutlet var impSwitch: UISwitch!
-    
+
     var prevVC = TasksViewController()
     
     override func viewDidLoad() {
@@ -31,5 +31,7 @@ class VCitems: UIViewController {
         task.important = impSwitch.isOn
         
         prevVC.tasks.append(task)
+        prevVC.todoTableView.reloadData()
+        navigationController!.popViewController(animated: true)
     }
 }
