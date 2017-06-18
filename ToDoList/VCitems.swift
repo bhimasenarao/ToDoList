@@ -16,7 +16,6 @@ class VCitems: UIViewController {
     
     @IBOutlet var impSwitch: UISwitch!
 
-    var prevVC = TasksViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +25,14 @@ class VCitems: UIViewController {
 
     @IBAction func addTapped(_ sender: Any) {
         
-        let task = Task()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let task = Task(context: context)
         task.name = itemTextyField.text!
         task.important = impSwitch.isOn
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-        prevVC.tasks.append(task)
-        prevVC.todoTableView.reloadData()
+ 
         navigationController!.popViewController(animated: true)
     }
 }

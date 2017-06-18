@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="usC-fW-lEZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="usC-fW-lEZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,6 +46,7 @@
                     <connections>
                         <outlet property="todoTableView" destination="iIE-y6-VSZ" id="atQ-P9-7tg"/>
                         <segue destination="fbH-oN-fJV" kind="show" identifier="addSegue" id="ZwW-q7-rkg"/>
+                        <segue destination="heM-sl-Om9" kind="show" identifier="selectTask" id="1tS-SF-rRA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -121,6 +122,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y2-wg-f85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3124" y="512.29385307346331"/>
+        </scene>
+        <!--CompleteVC-->
+        <scene sceneID="jYK-6G-UcC">
+            <objects>
+                <viewController id="heM-sl-Om9" customClass="CompleteVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lcg-ow-EW5"/>
+                        <viewControllerLayoutGuide type="bottom" id="4DK-UD-9UV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5yh-LV-Pjm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBn-Ij-Cco">
+                                <rect key="frame" x="156.5" y="84" width="61" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXp-gd-2YR">
+                                <rect key="frame" x="149" y="139" width="76" height="30"/>
+                                <state key="normal" title="Completed"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="heM-sl-Om9" eventType="touchUpInside" id="ATl-Gx-YC7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rBn-Ij-Cco" firstAttribute="top" secondItem="lcg-ow-EW5" secondAttribute="bottom" constant="20" id="5UM-K1-zoo"/>
+                            <constraint firstItem="QXp-gd-2YR" firstAttribute="top" secondItem="rBn-Ij-Cco" secondAttribute="bottom" constant="25" id="K5u-lM-7CW"/>
+                            <constraint firstItem="rBn-Ij-Cco" firstAttribute="centerX" secondItem="5yh-LV-Pjm" secondAttribute="centerX" id="sIE-WT-4ej"/>
+                            <constraint firstItem="QXp-gd-2YR" firstAttribute="centerX" secondItem="5yh-LV-Pjm" secondAttribute="centerX" id="sKp-2K-8Nt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="taskLable" destination="rBn-Ij-Cco" id="RIK-E6-Qhp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOu-cb-dpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3842" y="1209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dEg-rg-RUx">
