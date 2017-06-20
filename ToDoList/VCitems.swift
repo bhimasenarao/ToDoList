@@ -23,16 +23,15 @@ class VCitems: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+//Adding the new task to core data
     @IBAction func addTapped(_ sender: Any) {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let task = Task(context: context)
-        task.name = itemTextyField.text!
-        task.important = impSwitch.isOn
+            task.name = itemTextyField.text!
+            task.important = impSwitch.isOn
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
- 
         navigationController!.popViewController(animated: true)
     }
 }
