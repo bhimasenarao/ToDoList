@@ -35,18 +35,19 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-//Prepare the Segue when a table cell is selected
+//MARK: Prepare the Segue when a table cell is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = tasks[indexPath.row]
         performSegue(withIdentifier: "selectTask", sender: task)
+        
     }
     
-//Add button functionality
+//MARK: Add button functionality
     @IBAction func addButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: nil)
     }
     
-//Coredata - fetch data for refreshing the table
+//MARK: Coredata - fetch data for refreshing the table
     func getTasks(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -57,13 +58,13 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("Error")
         }
     }
-//Refresh todoTableView whenever it appears
+//MARK: Refresh todoTableView whenever it appears
     override func viewWillAppear(_ animated: Bool) {
         getTasks()
         todoTableView.reloadData()
     }
 
-//Bring up the view when a cell in the table is clicked.
+//MARK: Bring up the view when a cell in the table is clicked.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectTask"{
             let nextVC = segue.destination as! CompleteVC

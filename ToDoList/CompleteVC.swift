@@ -12,17 +12,21 @@ class CompleteVC: UIViewController {
 
     var task : Task? = nil
     
+    
     @IBOutlet weak var taskLable: UILabel!
     
+    @IBOutlet weak var impSwitch: UISwitch!
+    @IBOutlet weak var editTextField: UITextField!
+    @IBOutlet weak var editPressed: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 //Show the selected cell contents in this view
         if task!.important {
-            taskLable.text = "🚩\(task!.name!)"
+            editTextField.text = "♦️\(task!.name!)"
+            impSwitch.setOn(true, animated: true)
         }else {
-            taskLable.text = task!.name!
+            editTextField.text = task!.name!
         }
-            taskLable.text = task!.name!
     }
 
 //Completed task will be removed from the tasks list through Coredata
@@ -32,4 +36,19 @@ class CompleteVC: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
     }
+    
+    @IBAction func editBynPressed(_ sender: Any) {
+        _ = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        if impSwitch.isOn{
+        task?.name = editTextField.text!
+            task?.important = true
+        }else{
+            task?.name = editTextField.text
+            task?.important = false
+        }
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController!.popViewController(animated: true)
+        
+    }
+    
 }
